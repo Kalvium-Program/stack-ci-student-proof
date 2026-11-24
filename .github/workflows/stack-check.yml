@@ -33,7 +33,7 @@ jobs:
         run: |
           docker compose ps --all
           docker compose logs --no-color --timestamps > compose-logs.txt
-          tail -n 40 compose-logs.txt
+          docker compose logs --no-color app proxy
 
       - name: Upload service logs
         if: failure()
